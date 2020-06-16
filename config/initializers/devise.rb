@@ -37,6 +37,13 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+  require "omniauth-cas"
+
+  config.omniauth :cas,
+                  host: 'secure.its.yale.edu',
+                  login_url: '/cas/login',
+                  service_validate_url: '/cas/serviceValidate',
+                  disable_ssl_verification: true
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
